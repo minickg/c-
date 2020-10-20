@@ -1,0 +1,59 @@
+using System;
+
+namespace for4DomaciZad1
+{
+    //Učitati visine i težinu za n osoba. Ispisati prosječnu, najmanju i najveću visinu i težinu
+    class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+            int n, visina, tezina, maxVisina = 0, minVisina =1000 , maxTezina = 0, minTezina =1000 ,prosVisinaSuma = 0, 
+                prosTezinaSuma =0 , brVisine = 0, brTezine = 0;
+            double prosVisina = 0, prosTezina = 0;
+            Console.WriteLine("unesite broj osoba: ");
+            n = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Unesite visnu za osobu broj" + (i + 1));
+                visina = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Unesite tezinu za osobu broj" + (i + 1));
+                tezina = int.Parse(Console.ReadLine());
+
+                if (visina < minVisina)
+                {
+                    minVisina = visina;
+                  
+                }
+                else
+                {
+                    maxVisina = visina;
+                  
+                }
+                if (tezina < minTezina)
+                {
+                    minTezina = tezina;
+                   
+                }
+                else
+                {
+                    maxTezina = tezina;
+                   
+                }
+                prosVisinaSuma += tezina;
+                prosTezinaSuma += visina;
+                prosTezina = (double)prosTezinaSuma / n;
+                prosVisina = (double) prosVisinaSuma / n;
+
+
+            }
+            
+            Console.WriteLine("max visina: " + maxVisina + "||" + "min visina: " + minVisina);
+            Console.WriteLine("max tezina: " + maxTezina + "||" + "min tezina: " + minTezina);
+            Console.WriteLine("Prosecna tezina je: " + prosTezina + "||"+ "prosecna visina je: " + prosVisina );
+        }
+    }
+}
